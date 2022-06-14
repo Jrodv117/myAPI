@@ -12,6 +12,16 @@ app.use(
 		extended: true,
 	})
 );
+
+mongoose.connect('mongodb://localhost:27017/wikiDB');
+
+const articleSchema = {
+	title: String,
+	content: String,
+};
+
+const Article = mongoose.model('Article', articleSchema);
+
 app.use(express.static('public'));
 
 app.listen(3000, () => {
